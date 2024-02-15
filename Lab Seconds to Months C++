@@ -1,0 +1,269 @@
+#include <iostream>
+#include <iomanip>
+#include <string>
+
+using namespace std;
+void calculateTime(long double secondsIn, double &minutesOut, double &hoursOut, double &daysOut, double &weeksOut, double &monthsOut, double secondsInMonth)
+{
+    minutesOut = secondsIn / 60;
+    hoursOut = minutesOut / 60;
+    daysOut = hoursOut / 24;
+    weeksOut = daysOut / 7;
+    monthsOut = weeksOut / ( secondsInMonth / 60.0L / 60.0L / 24.0L / 7.0L);
+}
+void printOutput(long double secondsIn, double minutesOut, double hoursOut, double daysOut, double weeksOut, double monthsOut, string month)
+{
+    cout << fixed << setprecision(4);
+    cout << "You drove for: " << secondsIn << " seconds on " << month << endl;
+    cout << "------------------------------------------" << endl;
+    cout << "Minutes: " << minutesOut << endl;
+    cout << "Hours: " << hoursOut << endl;
+    cout << "Days: " << daysOut << endl;
+    cout << "Weeks: " << weeksOut << endl;
+    cout << "Months: " << monthsOut << endl;
+    cout << "------------------------------------------" << endl;
+}
+int main()
+{
+    string month;
+    long double secondsIn;
+    double minutesOut;
+    double hoursOut;
+    double daysOut;
+    double weeksOut;
+    double monthsOut;
+
+    const long double January = 2678400;
+    const long double February28 = 2419200;
+    const long double February29 = 2505600;
+    const long double March = 2678400;
+    const long double April = 2592000;
+    const long double May = 2678400;
+    const long double June = 2592000;
+    const long double July = 2678400;
+    const long double August = 2678400;
+    const long double September = 2592000;
+    const long double October = 2678400;
+    const long double November = 2592000;
+    const long double December = 2678400;
+
+    cout << "Please expect February as February28 or February29 for the days in it." << endl;
+    cout << "Please enter a month of the year." << endl;
+    cin >> month;
+
+    if (month == "January")
+    {
+        cout << "Please enter a number of seconds you drove in January: ";
+        cin >> secondsIn;
+        if (secondsIn <= January)
+        {
+            system("cls");
+            calculateTime(secondsIn, minutesOut, hoursOut, daysOut, weeksOut, monthsOut, January);
+            printOutput(secondsIn, minutesOut, hoursOut, daysOut, weeksOut, monthsOut, month);
+        }
+        else
+        {
+            system("cls");
+            cout << "You drove more time than possible, How? Go back and try again." << endl;
+        }
+    }
+    else if (month == "February28")
+    {
+        cout << "Please enter a number of seconds you drove in February(28 Days): ";
+        cin >> secondsIn;
+        if (secondsIn <= February28)
+        { 
+            system("cls");
+            calculateTime(secondsIn, minutesOut, hoursOut, daysOut, weeksOut, monthsOut, February28);
+            printOutput(secondsIn, minutesOut, hoursOut, daysOut, weeksOut, monthsOut, month);
+        }
+        else
+        {
+            system("cls");
+            cout << "You drove more time than possible, How? Go back and try again." << endl;
+        }
+    }
+    else if (month == "February29")
+    {
+        cout << "Please enter a number of seconds you drove in February(29Days): ";
+        cin >> secondsIn;
+        if (secondsIn <= February29)
+        {
+           system("cls");
+            calculateTime(secondsIn, minutesOut, hoursOut, daysOut, weeksOut, monthsOut, February29);
+            printOutput(secondsIn, minutesOut, hoursOut, daysOut, weeksOut, monthsOut, month);
+        }
+        else
+        {
+            system("cls");
+            cout << "You drove more time than possible, How? Go back and try again." << endl;
+        }
+    }
+    else if (month == "March")
+    {
+        cout << "Please enter a number of seconds you drove in March: ";
+        cin >> secondsIn;
+        if (secondsIn <= March)
+        {
+            system("cls");
+            calculateTime(secondsIn, minutesOut, hoursOut, daysOut, weeksOut, monthsOut, March);
+            printOutput(secondsIn, minutesOut, hoursOut, daysOut, weeksOut, monthsOut, month);
+        }
+        else
+        {
+            system("cls");
+            cout << "You drove more time than possible, How? Go back and try again." << endl;
+        }
+    }
+    else if (month == "April")
+    {
+        cout << "Please enter a number of seconds you drove in April: ";
+        cin >> secondsIn;
+        if (secondsIn <= April)
+        {
+            system("cls");
+            calculateTime(secondsIn, minutesOut, hoursOut, daysOut, weeksOut, monthsOut, April);
+            printOutput(secondsIn, minutesOut, hoursOut, daysOut, weeksOut, monthsOut, month);
+        }
+        else
+        {
+            system("cls");
+            cout << "You drove more time than possible, How? Go back and try again." << endl;
+        }
+    }
+    else if (month == "May")
+    {
+        cout << "Please enter a number of seconds you drove in May: ";
+        cin >> secondsIn;
+        if (secondsIn <= May)
+        {
+            system("cls");
+            calculateTime(secondsIn, minutesOut, hoursOut, daysOut, weeksOut, monthsOut, May);
+            printOutput(secondsIn, minutesOut, hoursOut, daysOut, weeksOut, monthsOut, month);
+        }
+        else
+        {
+            system("cls");
+            cout << "You drove more time than possible, How? Go back and try again." << endl;
+        }
+    }
+    else if (month == "June")
+    {
+        cout << "Please enter a number of seconds you drove in June: ";
+        cin >> secondsIn;
+        if (secondsIn <= June)
+        {
+            system("cls");
+            calculateTime(secondsIn, minutesOut, hoursOut, daysOut, weeksOut, monthsOut, June);
+            printOutput(secondsIn, minutesOut, hoursOut, daysOut, weeksOut, monthsOut, month);
+        }
+        else
+        {
+            system("cls");
+            cout << "You drove more time than possible, How? Go back and try again." << endl;
+        }
+    }
+    else if (month == "July")
+    {
+        cout << "Please enter a number of seconds you drove in July: ";
+        cin >> secondsIn;
+        if (secondsIn <= July)
+        {
+            system("cls");
+            calculateTime(secondsIn, minutesOut, hoursOut, daysOut, weeksOut, monthsOut, July);
+            printOutput(secondsIn, minutesOut, hoursOut, daysOut, weeksOut, monthsOut, month);
+        }
+        else
+        {
+            system("cls");
+            cout << "You drove more time than possible, How? Go back and try again." << endl;
+        }
+    }
+    else if (month == "August")
+    {
+        cout << "Please enter a number of seconds you drove in August: ";
+        cin >> secondsIn;
+        if (secondsIn <= August)
+        {
+            system("cls");
+            calculateTime(secondsIn, minutesOut, hoursOut, daysOut, weeksOut, monthsOut, August);
+            printOutput(secondsIn, minutesOut, hoursOut, daysOut, weeksOut, monthsOut, month);
+        }
+        else
+        {
+            system("cls");
+            cout << "You drove more time than possible, How? Go back and try again." << endl;
+        }
+    }
+    else if (month == "September")
+    {
+        cout << "Please enter a number of seconds you drove in September: ";
+        cin >> secondsIn;
+        if (secondsIn <= September)
+        {
+            system("cls");
+            calculateTime(secondsIn, minutesOut, hoursOut, daysOut, weeksOut, monthsOut, September);
+            printOutput(secondsIn, minutesOut, hoursOut, daysOut, weeksOut, monthsOut, month);
+        }
+        else
+        {
+            system("cls");
+            cout << "You drove more time than possible, How? Go back and try again." << endl;
+        }
+    }
+    else if (month == "October")
+    {
+        cout << "Please enter a number of seconds you drove in November: ";
+        cin >> secondsIn;
+        if (secondsIn <= October)
+        {
+            system("cls");
+            calculateTime(secondsIn, minutesOut, hoursOut, daysOut, weeksOut, monthsOut, October);
+            printOutput(secondsIn, minutesOut, hoursOut, daysOut, weeksOut, monthsOut, month);
+        }
+        else
+        {
+            system("cls");
+            cout << "You drove more time than possible, How? Go back and try again." << endl;
+        }
+    }
+    else if (month == "November")
+    {
+        cout << "Please enter a number of seconds you drove in November: ";
+        cin >> secondsIn;
+        if (secondsIn <= November)
+        {
+            system("cls");
+            calculateTime(secondsIn, minutesOut, hoursOut, daysOut, weeksOut, monthsOut, November);
+            printOutput(secondsIn, minutesOut, hoursOut, daysOut, weeksOut, monthsOut, month);
+        }
+        else
+        {
+            system("cls");
+            cout << "You drove more time than possible, How? Go back and try again." << endl;
+        }
+    }
+    else if (month == "December")
+    {
+        cout << "Please enter a number of seconds you drove in December: ";
+        cin >> secondsIn;
+        if (secondsIn <= December)
+        {
+            system("cls");
+            calculateTime(secondsIn, minutesOut, hoursOut, daysOut, weeksOut, monthsOut, December);
+            printOutput(secondsIn, minutesOut, hoursOut, daysOut, weeksOut, monthsOut, month);
+        }
+        else
+        {
+            system("cls");
+            cout << "You drove more time than possible, How? Go back and try again." << endl;
+        }
+    }
+    else
+    {
+        system("cls");
+        cout << "Invalid month entered, please enter a vaid month(Example: January)." << endl;
+    }
+
+    return 0;
+}
