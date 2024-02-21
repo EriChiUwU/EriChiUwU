@@ -1,0 +1,28 @@
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+
+int main()
+{
+    int celsius;
+
+    cout << "Please enter a temperature in Celsius.\n";
+    cin >> celsius;
+
+    system("cls");
+    cout << "-----------------------------------------\n";
+    cout << "|\tCelsius\t\tFahrenheit\t|\n";
+    cout << "-----------------------------------------\n";
+
+    for (int i = 1; i <= 20; ++i)
+    {
+        double fahrenheit = (celsius * 1.8) + 32;
+        cout << fixed << setprecision(2);
+        cout << "|\t" << i << "\t\t" << fahrenheit << "\t\t|\n";
+        celsius++;
+    }
+    cout << "-----------------------------------------\n";
+
+    return 0;
+}
