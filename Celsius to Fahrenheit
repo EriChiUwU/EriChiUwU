@@ -19,7 +19,7 @@ int main()
     {
         double fahrenheit = (celsius * 1.8) + 32;
         cout << fixed << setprecision(2);
-        cout << "|\t" << i << "\t\t" << fahrenheit << "\t\t|\n";
+        cout << "|\t" << celsius << "\t\t" << fahrenheit << "\t\t|\n";
         celsius++;
     }
     cout << "-----------------------------------------\n";
