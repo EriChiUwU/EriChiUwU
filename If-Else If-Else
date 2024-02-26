@@ -1,0 +1,30 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    char employed;
+    char recentGrad;
+
+    cout << "Are you Employed?\n";
+    cin >> employed;
+    cout << "Are you a recent Graduate?\n";
+    cin >> recentGrad;
+
+    if (employed == 'Y' && recentGrad == 'Y')
+    {
+        cout << "You qualify for the special interest rate.\n";
+    }
+    else if (recentGrad == 'N' && employed == 'N')
+    {
+        cout << "You must have graduated from college in the past two years to qualify.\n";
+        cout << "You must be employed to qualify.\n";
+    }
+    else
+    {
+        cout << "Invalid input.\n";
+    }
+
+    return 0;
+}
