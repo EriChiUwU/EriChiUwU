@@ -1,0 +1,30 @@
+#include <iostream>
+#include <string>
+#include <fstream>
+
+using namespace std;
+
+int main()
+{
+	ifstream inputFile;
+	string filename;
+	int num;
+	cout << "Enter the filename: ";
+	cin >> filename;
+
+	inputFile.open(filename);
+
+	if (inputFile)
+	{
+		while (inputFile >> num)
+		{
+			cout << num << endl;
+		}
+		inputFile.close();
+	}
+	else
+	{
+		cout << "Error opening the file." << endl;
+	}
+	return 0;
+}
