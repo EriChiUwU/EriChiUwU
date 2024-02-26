@@ -1,0 +1,32 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	int num1;
+	int num2;
+	int addition;
+	int substraction;
+	int multiplication;
+	int division;
+	int mod;
+
+	cout << "Please Enter the 1st Number" << endl;
+	cin >> num1;
+	cout << "Please Enter the 2nd Number" << endl;
+	cin >> num2;
+
+	addition = num1 + num2;
+	substraction = num1 - num2;
+	multiplication = num1 * num2;
+	division = num1 / num2;
+	mod = num1 % num2;
+
+	cout << "The Answer for addition is " << addition << endl;
+	cout << "The Answer for substraction " << substraction << endl;
+	cout << "The Answer for multiplication " << multiplication << endl;
+	cout << "The Answer for division " << division << endl;
+	cout << "The Answer for mod " << mod << endl;
+
+	return 0;
+}
