@@ -2,7 +2,6 @@
 #include <ctime>        // Time for random number.
 #include <cstdlib>      // Random Number.
 #include <chrono>       // Timer.
-#include <iomanip> 
 
 using namespace std;
 
@@ -62,7 +61,7 @@ int main()
             system("cls");
             cout << "\t\t\t\t\t" << "--------------------------------------------------\n";
             cout << "\t\t\t\t\t" << "|           Time remaining: " << timeLimitSeconds - elapsedTime << " seconds           |\n";       //Guess right with timer and attempts. And Close Game
-            cout << "\t\t\t\t\t" << "|  Congrats you picked it right in " << attempts << " attempts    |\n";
+            cout << "\t\t\t\t\t" << "|   Congrats you picked it right in " << attempts << " attempts   |\n";
             cout << "\t\t\t\t\t" << "--------------------------------------------------\n";
 
             cout << "Press enter to exit...";
