@@ -1,32 +1,69 @@
 #include <iostream>
+#include <iomanip>
 using namespace std;
+
+double sum;  
+double sub;
+int mult;
+double divResult; 
+int modResult;
+
+void addition(double&, double&);
+void substraction(double&, double&);
+int multiplication(int, int);
+double division(double, double);
+int mod(int, int);
 
 int main()
 {
-	int num1;
-	int num2;
-	int addition;
-	int substraction;
-	int multiplication;
-	int division;
-	int mod;
+    double num1;
+    double num2;
 
-	cout << "Please Enter the 1st Number" << endl;
-	cin >> num1;
-	cout << "Please Enter the 2nd Number" << endl;
-	cin >> num2;
+    cout << "Please Enter the 1st Number" << endl;
+    cin >> num1;
+    cout << "Please Enter the 2nd Number" << endl;
+    cin >> num2;
 
-	addition = num1 + num2;
-	substraction = num1 - num2;
-	multiplication = num1 * num2;
-	division = num1 / num2;
-	mod = num1 % num2;
+    addition(num1, num2);
+    substraction(num1, num2);
+    mult = multiplication(num1, num2);
+    divResult = division(num1, num2); 
+    modResult = mod(num1, num2);
 
-	cout << "The Answer for addition is " << addition << endl;
-	cout << "The Answer for substraction " << substraction << endl;
-	cout << "The Answer for multiplication " << multiplication << endl;
-	cout << "The Answer for division " << division << endl;
-	cout << "The Answer for mod " << mod << endl;
+    cout << setprecision(2);
+    cout << "The Answer for addition is " << sum << endl;
+    cout << "The Answer for substraction is " << sub << endl;
+    cout << "The Answer for multiplication is " << mult << endl;
+    cout << "The Answer for division is " << divResult << endl; 
+    cout << "The Answer for mod is " << modResult << endl;
 
-	return 0;
+    return 0;
+}
+
+void addition(double& num1, double& num2)
+{
+    sum = num1 + num2;
+}
+
+void substraction(double& num1, double& num2)
+{
+    sub = num1 - num2;
+}
+
+int multiplication(int num1, int num2)
+{
+    int result = num1 * num2;
+    return result;
+}
+
+double division(double num1, double num2)
+{
+    double result = num1 / num2;
+    return result;
+}
+
+int mod(int num1, int num2)
+{
+    int result = num1 % num2;
+    return result;
 }
