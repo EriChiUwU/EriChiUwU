@@ -5,37 +5,20 @@
 
 using namespace std;
 
-void printconsole(string firstName, string lastName, string address,
-	double stateTaxRate, double federalTaxRate, double socialSecurityEmployee,
-	double medicareEmployee, double hours, double payRate, double weekly,
-	double biweekly, double monthly, double yearly)
-{
+const double stateTaxRate = 0.0495;
+const double federalTaxRate = 0.22;
+const double socialSecurityEmployee = 0.062;
+const double medicareEmployee = 0.0145;
+const double payRate = 23.5;
 
-	cout << "ChicagoLLA Employee Paystub" << endl;
-	cout << "------------------------------------------------------------------------------------------------------------------------" << endl;
-	cout << left << setw(15) << "Name:" << setw(25) << firstName + " " + lastName << endl;
-	cout << left << setw(15) << "Address:" << setw(25) << address << endl;
-	cout << left << setw(15) << "Hours Worked:" << setw(10) << fixed << setprecision(2) << hours << endl;
-	cout << left << setw(15) << "Pay Rate:" << setw(10) << fixed << setprecision(2) << payRate << endl;
-	cout << "------------------------------------------------------------------------------------------------------------------------" << endl;
-	cout << right << setw(43) << "Medicare" << setw(32) << "Social Security" << setw(24) << "Federal Withholding" << setw(20) << "IL Withholding" << endl;
-	cout << left << setw(15) << "Weekly:" << setw(20) << weekly << setw(25) << medicareEmployee * weekly << setw(25) << socialSecurityEmployee * weekly << setw(20) << federalTaxRate * weekly << setw(20) << stateTaxRate * weekly << endl;
-	cout << left << setw(15) << "Bi-Weekly:" << setw(20) << biweekly << setw(25) << medicareEmployee * biweekly << setw(25) << socialSecurityEmployee * biweekly << setw(20) << federalTaxRate * biweekly << setw(20) << stateTaxRate * biweekly << endl;
-	cout << left << setw(15) << "Monthly:" << setw(20) << monthly << setw(25) << medicareEmployee * monthly << setw(25) << socialSecurityEmployee * monthly << setw(20) << federalTaxRate * monthly << setw(20) << stateTaxRate * monthly << endl;
-	cout << left << setw(15) << "Yearly:" << setw(20) << yearly << setw(25) << medicareEmployee * yearly << setw(25) << socialSecurityEmployee * yearly << setw(20) << federalTaxRate * yearly << setw(20) << stateTaxRate * yearly << endl;
+void printconsole(string, string, string, double, double, double, double, double, double, double, double, double, double);
 
-}
 int main()
 {
 	string firstName;
 	string lastName;
 	string address;
-	const double stateTaxRate = 0.0495;
-	const double federalTaxRate = 0.22;
-	const double socialSecurityEmployee = 0.062;
-	const double medicareEmployee = 0.0145;
 	double hours;
-	const double payRate = 23.5;
 	double weekly;
 	double biweekly;
 	double monthly;
@@ -59,13 +42,27 @@ int main()
 	monthly = biweekly * 2;
 	yearly = monthly * 12;
 
-	
 	system("cls");
-	
 	printconsole(firstName, lastName, address, stateTaxRate, federalTaxRate, socialSecurityEmployee,
 		medicareEmployee, hours, payRate, weekly, biweekly, monthly, yearly);
-
 	return 0;
 }
-
+void printconsole(string firstName, string lastName, string address,
+	double stateTaxRate, double federalTaxRate, double socialSecurityEmployee,
+	double medicareEmployee, double hours, double payRate, double weekly,
+	double biweekly, double monthly, double yearly)
+{
+	cout << "ChicagoLLA Employee Paystub" << endl;
+	cout << "------------------------------------------------------------------------------------------------------------------------" << endl;
+	cout << left << setw(15) << "Name:" << setw(25) << firstName + " " + lastName << endl;
+	cout << left << setw(15) << "Address:" << setw(25) << address << endl;
+	cout << left << setw(15) << "Hours Worked:" << setw(10) << fixed << setprecision(2) << hours << endl;
+	cout << left << setw(15) << "Pay Rate:" << setw(10) << fixed << setprecision(2) << payRate << endl;
+	cout << "------------------------------------------------------------------------------------------------------------------------" << endl;
+	cout << right << setw(43) << "Medicare" << setw(32) << "Social Security" << setw(24) << "Federal Withholding" << setw(20) << "IL Withholding" << endl;
+	cout << left << setw(15) << "Weekly:" << setw(20) << weekly << setw(25) << medicareEmployee * weekly << setw(25) << socialSecurityEmployee * weekly << setw(20) << federalTaxRate * weekly << setw(20) << stateTaxRate * weekly << endl;
+	cout << left << setw(15) << "Bi-Weekly:" << setw(20) << biweekly << setw(25) << medicareEmployee * biweekly << setw(25) << socialSecurityEmployee * biweekly << setw(20) << federalTaxRate * biweekly << setw(20) << stateTaxRate * biweekly << endl;
+	cout << left << setw(15) << "Monthly:" << setw(20) << monthly << setw(25) << medicareEmployee * monthly << setw(25) << socialSecurityEmployee * monthly << setw(20) << federalTaxRate * monthly << setw(20) << stateTaxRate * monthly << endl;
+	cout << left << setw(15) << "Yearly:" << setw(20) << yearly << setw(25) << medicareEmployee * yearly << setw(25) << socialSecurityEmployee * yearly << setw(20) << federalTaxRate * yearly << setw(20) << stateTaxRate * yearly << endl;
+}
 
