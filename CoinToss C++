@@ -12,7 +12,7 @@ int main()
     int heads = 0;
     int tails = 0;
 
-    srand(static_cast<unsigned>(time(0)));
+    srand(static_cast<unsigned int>(time(0)));
 
     cout << "How many times you want to flip the coin?" << endl;
     cin >> times;
