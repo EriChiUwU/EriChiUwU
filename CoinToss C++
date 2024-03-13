@@ -1,0 +1,55 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+
+using namespace std;
+
+void coinToss(int& heads, int& tails);
+
+int main()
+{
+    int times;
+    int heads = 0;
+    int tails = 0;
+
+    srand(static_cast<unsigned>(time(0)));
+
+    cout << "How many times you want to flip the coin?" << endl;
+    cin >> times;
+
+    for (int i = times; i >= 1; i--)
+    {
+        coinToss(heads, tails);
+    }
+    system("cls");
+    cout << "\t\t\t\t\t-------------------------------------------------" << endl;
+    cout << "\t\t\t\t\t|\t\tNumber of heads: " << heads << "\t\t|" << endl;
+    cout << "\t\t\t\t\t|\t\tNumber of tails: " << tails << "\t\t|" << endl;
+    cout << "\t\t\t\t\t-------------------------------------------------" << endl;
+
+    if (heads > tails)
+    {
+        cout << "\t\t\t\t\t\t\t     Heads Wins" << endl;
+    }
+    if (heads < tails)
+    {
+        cout << "\t\t\t\t\t\t\t     Tails Wins" << endl;
+    }
+    if (heads == tails)
+        cout << "\t\t\t\t\t\t\t     Tie" << endl;
+
+    return 0;
+}
+
+void coinToss(int& heads, int& tails)
+{
+    double ranNum = (rand() % 2) + 1;
+    if (ranNum == 1)
+    {
+        heads++;
+    }
+    else if (ranNum == 2)
+    {
+        tails++;
+    }
+}
