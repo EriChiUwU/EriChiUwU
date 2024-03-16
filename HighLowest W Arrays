@@ -1,0 +1,36 @@
+#include <iostream>
+#include <string>
+
+
+using namespace std;
+
+int main()
+{
+	int count;
+	int highest;
+	int lowest;
+	const int SIZE = 10;
+	int numbers[SIZE];
+
+	for (int &val : numbers)
+	{
+		cout << "Enter a value: " << endl;
+		cin >> val;
+	}
+	
+	highest = numbers[0];
+	lowest = numbers[0];
+
+	for (count = 1; count < SIZE; count++)
+	{
+		if (numbers[count] > highest)
+			highest = numbers[count];
+		if (numbers[count] < lowest)
+			lowest = numbers[count];
+	}			
+
+	cout << "Highest value is: " << highest << endl;
+	cout << "Lowest value is : " << lowest << endl;
+
+	return 0;
+}
