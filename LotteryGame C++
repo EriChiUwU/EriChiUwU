@@ -1,0 +1,116 @@
+#include <iostream>
+#include <iomanip> // for setw
+#include <cstdlib>
+#include <ctime>
+
+using namespace std;
+
+const int SIZE = 8; // Define SIZE globally
+
+int lotteryNumbers(int lottery[], const int SIZE);
+int userNumbers(int user[], const int SIZE);
+int matchingNumbers(int lottery[], int user[], const int SIZE);
+int sameNumbers(int lottery[], int user[], const int SIZE, int sameNum[]);
+
+int main()
+{
+    int lottery[SIZE];
+    int user[SIZE];
+    int sameNum[SIZE];
+    int matches;
+    int count;
+
+    srand(static_cast<unsigned int>(time(0)));
+
+    lotteryNumbers(lottery, SIZE);
+
+    cout << "Welcome to your lottery ticket checker" << endl;
+
+    userNumbers(user, SIZE);
+
+    system("cls");
+
+    cout << "\t\t\t\t==================================================" << endl; // Top border of the box
+    cout << "\t\t\t\t|                                                |" << endl; // Empty line
+    cout << "\t\t\t\t|          Lottery numbers: ";
+    for (int i = 0; i < SIZE; ++i)
+    {
+        cout << lottery[i] << " ";
+    }
+    cout << "     |" << endl;
+    cout << "\t\t\t\t|            User numbers:  ";
+    for (int i = 0; i < SIZE; ++i)
+    {
+        cout << user[i] << " ";
+    }
+    cout << "     |" << endl;
+    cout << "\t\t\t\t|                                                |" << endl; // Bottom border of the box
+    cout << "\t\t\t\t==================================================" << endl;
+
+    matches = matchingNumbers(lottery, user, SIZE);
+    count = sameNumbers(lottery, user, SIZE, sameNum);
+
+    cout << "\t\t\t\tYou got " << matches << " matches!" << endl;
+    cout << "\t\t\t\tThese are your matching numbers :";
+    for (int i = 0; i < count; i++)
+    {
+        cout << sameNum[i] << " ";
+    }
+    cout << endl;
+    cout << endl;
+    if (matchingNumbers(lottery, user, SIZE) == SIZE)
+        cout << "\t\t\t\t\t\tYOU ARE A WINNER!" << endl;
+
+    
+
+    return 0;
+}
+
+int lotteryNumbers(int lottery[], const int SIZE)
+{
+    for (int i = 0; i < SIZE; ++i)
+    {
+        int ranNum = rand() % 10;
+        lottery[i] = ranNum;
+    }
+    return lottery[SIZE];
+}
+
+int userNumbers(int user[], const int SIZE)
+{
+    cout << "Please enter numbers between 1 to 9" << endl;
+    for (int i = 0; i < SIZE; ++i)
+    {
+        cout << i + 1 << " number: ";
+        cin >> user[i];
+    }
+    return user[SIZE];
+}
+
+int matchingNumbers(int lottery[], int user[], const int SIZE)
+{
+    int matches = 0;
+
+    for (int i = 0; i < SIZE; ++i)
+    {
+        if (lottery[i] == user[i])
+        {
+            ++matches;
+        }
+    }
+    return matches;
+}
+
+int sameNumbers(int lottery[], int user[], const int SIZE, int sameNum[])
+{
+    int count = 0;
+
+    for (int i = 0; i < SIZE; ++i)
+    {
+        if (lottery[i] == user[i])
+        {
+            sameNum[count++] = user[i];
+        }
+    }
+    return count;
+}
