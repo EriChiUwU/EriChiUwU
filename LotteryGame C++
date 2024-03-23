@@ -1,11 +1,11 @@
 #include <iostream>
-#include <iomanip> // for setw
+#include <iomanip> 
 #include <cstdlib>
 #include <ctime>
 
 using namespace std;
 
-const int SIZE = 8; // Define SIZE globally
+const int SIZE = 8; 
 
 int lotteryNumbers(int lottery[], const int SIZE);
 int userNumbers(int user[], const int SIZE);
@@ -30,8 +30,8 @@ int main()
 
     system("cls");
 
-    cout << "\t\t\t\t==================================================" << endl; // Top border of the box
-    cout << "\t\t\t\t|                                                |" << endl; // Empty line
+    cout << "\t\t\t\t==================================================" << endl; 
+    cout << "\t\t\t\t|                                                |" << endl; 
     cout << "\t\t\t\t|          Lottery numbers: ";
     for (int i = 0; i < SIZE; ++i)
     {
@@ -44,7 +44,7 @@ int main()
         cout << user[i] << " ";
     }
     cout << "     |" << endl;
-    cout << "\t\t\t\t|                                                |" << endl; // Bottom border of the box
+    cout << "\t\t\t\t|                                                |" << endl; 
     cout << "\t\t\t\t==================================================" << endl;
 
     matches = matchingNumbers(lottery, user, SIZE);
