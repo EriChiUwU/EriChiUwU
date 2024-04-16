@@ -1,0 +1,135 @@
+**Car.h**
+#ifndef CARH
+#define CARH
+#include <string>
+#include <iostream>
+
+using namespace std;
+class Car
+{
+public:
+    Car(int year, string makee);
+
+    void brake();
+
+    void accelerate();
+
+    void setSpeed(int sp);
+
+    int getSpeed();
+
+    void setMake(string makee);
+
+    string getMake();
+
+    void setyearModel(int year);
+
+    int getyearModel();
+
+
+private:
+    int yearModel;
+    string make;
+    int speed;
+};
+#endif
+
+**Car.ccp*
+#include <iostream>
+#include <string>
+#include "Car.h"
+
+using namespace std;
+
+int main()
+{
+    int year = 0;
+    string makee;
+    int maxSpeed = 0;
+
+    cout << "Please enter the next information of your car." << endl;
+    cout << "Year of your model: ";
+    cin >> year;
+    cout << "Make of your model: ";
+    cin >> makee;
+    cout << endl;
+
+    Car Car1(year, makee);
+    Car1.getMake();
+    Car1.getyearModel();
+
+    cout << "Your Car: " << Car1.getMake() << " Year: " << Car1.getyearModel() << " Has a Speed of: " << Car1.getSpeed() << " mph." << endl;
+    cout << endl;
+    cout << "Lets test the speed of the car." << endl;
+    cout << endl;
+    cout << "Accelerting..." << endl;
+
+    for (int i = 0; i < 5; i++)
+    {
+        Car1.accelerate();
+        cout << "Current Speed: " << Car1.getSpeed() << " mph." << endl;
+    }
+
+    maxSpeed = Car1.getSpeed();
+    cout << endl;
+
+    cout << "Decelerating..." << endl;
+    for (int i = 0; i < 5; i++)
+    {
+        Car1.brake();
+        cout << "Current Speed: " << Car1.getSpeed() << " mph." << endl;
+    }
+    cout << endl;
+    cout << "The finals spectations of your car." << endl << endl;
+    cout << "Your: " << Car1.getMake() << " " << Car1.getyearModel() << " Got a max Speed of: " << maxSpeed << " mph." << endl << endl;
+
+    return 0;
+}
+
+Car::Car(int year, string makee)
+{
+    yearModel = year;
+    make = makee;
+    speed = 0;
+}
+
+void Car::brake()
+{
+    speed = speed - 5;
+}
+
+void Car::accelerate()
+{
+    speed = speed + 5;
+}
+
+void Car::setSpeed(int sp)
+{
+    speed = sp;
+}
+
+int Car::getSpeed()
+{
+    return speed;
+}
+
+void Car::setMake(string makee)
+{
+    make = makee;
+}
+
+string Car::getMake()
+{
+    return make;
+}
+
+
+void Car::setyearModel(int year)
+{
+    yearModel = year;
+}
+
+int Car::getyearModel()
+{
+    return yearModel;
+}
