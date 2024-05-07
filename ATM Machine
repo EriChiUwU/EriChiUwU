@@ -1,0 +1,210 @@
+// .CPP File
+
+#include "Miguel Rea ATM.h"
+#include <iostream>
+// Miguel Rea ATM.cpp
+
+using namespace std;
+
+// Function to enter the AccruedInterest
+double Bank::getAccruedInterest()
+{
+    return accruedInterest;
+}
+
+// Function to authenticate user's credentials
+bool authenticateUser(Bank& b) 
+{
+    int accNum, accPass;
+    cout << "Enter your account number: ";
+    cin >> accNum;
+    cout << "Enter your password: ";
+    cin >> accPass;
+    return b.authenticate(accNum, accPass);
+}
+
+// Function to display the menu and return the user's choice
+char displayMenu() 
+{
+    cout << "\n==== Menu ====" << endl;
+    cout << "1. View Balance" << endl;
+    cout << "2. Make a Withdrawal" << endl;
+    cout << "3. Make a Deposit" << endl;
+    cout << "4. Interest Accrued" << endl;
+    cout << "5. Exit" << endl;
+    cout << "==============" << endl;
+    cout << "Enter your choice: ";
+
+    char choice;
+    cin >> choice;
+    return choice;
+}
+
+// Function to proccess usee's choice and display menu
+bool processChoice(Bank& b)
+{
+    int amount;
+    char choice;
+    bool shouldExit = false;
+
+    b.addInterest(); // Add interest
+
+    do {
+        switch (displayMenu())
+        {
+        case '1': //Show my Balance Menu Section
+            cout << "My Balance: " << b.getMyBalance() << endl;
+            break;
+        case '2': // Withdraw money Menu Section
+            cout << "Enter the amount to withdraw: ";
+            cin >> amount;
+            if (amount < 0)
+            {
+                cout << "Negative amount entered. Please try again." << endl; //Negative error
+            }
+            else
+            {
+                if (b.withdraw(amount))
+                {
+                    cout << "Withdrawal successful. New balance: " << b.getMyBalance() << endl; // Withdraw success
+                }
+                else
+                {
+                    cout << "Withdrawal failed. Insufficient balance." << endl; // Withdraw faild Low balance
+                }
+            }
+            break;
+        case '3': //Deposit Menu Section
+            cout << "Enter the amount to deposit: ";
+            cin >> amount;
+            if (amount < 0)
+            {
+                cout << "Negative amount entered. Please try again." << endl; // Negative error
+            }
+            else
+            {
+                b.deposit(amount);
+                cout << "Deposit successful. New balance: " << b.getMyBalance() << endl; // Deposit Success
+            }
+            break;
+        case '4': //Interest Accrued menu section
+            cout << "Accrued interest: " << b.getAccruedInterest() << endl;
+            break;
+        case '5': //Exit program section
+            shouldExit = true;
+            break;
+        default: 
+            cout << "Invalid choice. Please try again." << endl;
+        }
+
+        if (!shouldExit) //Way to go back menu
+        {
+            cout << "Do you want to go back to the menu? (y/n): ";
+            cin >> choice;
+            if (choice == 'n' || choice == 'N')
+            {
+                shouldExit = true;
+            }
+        }
+    } while (!shouldExit && (choice == 'y' || choice == 'Y'));
+
+    return shouldExit;
+}
+
+
+
+
+int main() {
+    // Creating an instance of the Bank class
+    Bank b;
+
+    // Authenticate user
+    if (!authenticateUser(b))
+    {
+        cout << "Authentication failed. Exiting program." << endl;
+        return 1;
+    }
+
+    // Proceed to menu if authentication is successful
+    while (true)
+    {
+        // Process user's choice
+        if (processChoice(b))
+        {
+            // If processChoice returns true, exit the program
+            cout << "Exiting program. Goodbye!" << endl;
+            break;
+        }
+    }
+
+    return 0;
+}
+
+// .h File
+
+#ifndef ATMh
+#define ATMh
+#include <iostream>
+
+// Miguel Rea ATM.h file
+
+class Bank {
+private:
+    int accNum;
+    int accPass;
+    double myBalance;
+    double accruedInterest;
+
+public:
+    // Constructor initializes account information
+    Bank(int accNum = 1234, int accPas = 5678, double myBalance = 1000, double accruedInterest = 0)
+        : accNum(accNum), accPass(accPas), myBalance(myBalance), accruedInterest() {}
+
+
+    // Member function to check if the entered credentials are correct
+    bool authenticate(int enteredAccNum, int enteredAccPass) 
+    {
+        return (accNum == enteredAccNum && accPass == enteredAccPass);
+    }
+
+    // Member function to get the balance
+    int getMyBalance() 
+    {
+        return myBalance;
+    }
+
+    // Member function to withdraw money
+    bool withdraw(int amount) 
+    {
+        if (amount <= myBalance)
+        {
+            myBalance -= amount;
+            return true;
+        }
+        return false;
+    }
+
+    // Member function to deposit money
+    void deposit(int amount)
+    {
+        myBalance += amount;
+    }
+
+    // Member function to add interest to balance
+    void addInterest() {
+        
+        double interest = myBalance * 0.01;
+
+        
+        accruedInterest += interest;
+
+        
+        myBalance += interest;
+    }
+
+    
+    double getAccruedInterest();
+
+};
+
+#endif
