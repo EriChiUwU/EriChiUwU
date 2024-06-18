@@ -1,0 +1,171 @@
+#include <iostream>
+#include <iomanip>
+#include <string>
+
+using namespace std;
+
+const double interestRate = 5.5;
+
+// Function Prototypes
+void eightfourmonths(string firstName, string lastName, double loanAmount, const double interestRate);
+void seventwomonths(string firstName, string lastName, double loanAmount, const double interestRate);
+void sixzeromonths(string firstName, string lastName, double loanAmount, const double interestRate);
+void foureightmonths(string firstName, string lastName, double loanAmount, const double interestRate);
+char displayMenu();
+bool processChoice(string firstName, string lastName, double loanAmount, const double interestRate);
+
+int main()
+{
+    string firstName;
+    string lastName;
+    double loanAmount;
+
+    cout << "Enter your First Name and your Last Name.\n";
+    cin >> firstName;
+    cin >> lastName;
+    cout << "Please provide an amount you need for your Car Loan.\n";
+    cin >> loanAmount;
+
+    if (processChoice(firstName, lastName, loanAmount, interestRate))
+    {
+        cout << "Thank you for using the loan calculator. Goodbye!" << endl;
+    }
+
+    return 0;
+}
+
+void eightfourmonths(string firstName, string lastName, double loanAmount, const double interestRate)
+{
+    double loanInterestPay;
+    double loanMonthlyPay;
+    double loanPayment;
+
+    loanMonthlyPay = loanAmount / 84;
+    loanInterestPay = loanAmount * (interestRate / 100) * 7;
+    loanPayment = loanMonthlyPay + (loanInterestPay / 84);
+
+    cout << "Your Monthly Payment will be: $" << fixed << setprecision(2) << loanMonthlyPay << endl;
+    cout << "The interest you are paying will be: $" << fixed << setprecision(2) << loanInterestPay << endl;
+    cout << "And your final payment monthly with interest will be: $" << fixed << setprecision(2) << loanPayment << endl;
+    cout << firstName << " " << lastName << " will pay: $" << fixed << setprecision(2) << loanPayment * 84 << " over 84 months." << endl;
+}
+
+void seventwomonths(string firstName, string lastName, double loanAmount, const double interestRate)
+{
+    double loanInterestPay;
+    double loanMonthlyPay;
+    double loanPayment;
+
+    loanMonthlyPay = loanAmount / 72;
+    loanInterestPay = loanAmount * (interestRate / 100) * 6;
+    loanPayment = loanMonthlyPay + (loanInterestPay / 72);
+
+    cout << "Your Monthly Payment will be: $" << fixed << setprecision(2) << loanMonthlyPay << endl;
+    cout << "The interest you are paying will be: $" << fixed << setprecision(2) << loanInterestPay << endl;
+    cout << "And your final payment monthly with interest will be: $" << fixed << setprecision(2) << loanPayment << endl;
+    cout << firstName << " " << lastName << " will pay: $" << fixed << setprecision(2) << loanPayment * 72 << " over 72 months." << endl;
+}
+
+void sixzeromonths(string firstName, string lastName, double loanAmount, const double interestRate)
+{
+    double loanInterestPay;
+    double loanMonthlyPay;
+    double loanPayment;
+
+    loanMonthlyPay = loanAmount / 60;
+    loanInterestPay = loanAmount * (interestRate / 100) * 5;
+    loanPayment = loanMonthlyPay + (loanInterestPay / 60);
+
+    cout << "Your Monthly Payment will be: $" << fixed << setprecision(2) << loanMonthlyPay << endl;
+    cout << "The interest you are paying will be: $" << fixed << setprecision(2) << loanInterestPay << endl;
+    cout << "And your final payment monthly with interest will be: $" << fixed << setprecision(2) << loanPayment << endl;
+    cout << firstName << " " << lastName << " will pay: $" << fixed << setprecision(2) << loanPayment * 60 << " over 60 months." << endl;
+}
+
+void foureightmonths(string firstName, string lastName, double loanAmount, const double interestRate)
+{
+    double loanInterestPay;
+    double loanMonthlyPay;
+    double loanPayment;
+
+    loanMonthlyPay = loanAmount / 48;
+    loanInterestPay = loanAmount * (interestRate / 100) * 4;
+    loanPayment = loanMonthlyPay + (loanInterestPay / 48);
+
+    cout << "Your Monthly Payment will be: $" << fixed << setprecision(2) << loanMonthlyPay << endl;
+    cout << "The interest you are paying will be: $" << fixed << setprecision(2) << loanInterestPay << endl;
+    cout << "And your final payment monthly with interest will be: $" << fixed << setprecision(2) << loanPayment << endl;
+    cout << firstName << " " << lastName << " will pay: $" << fixed << setprecision(2) << loanPayment * 48 << " over 48 months." << endl;
+}
+
+char displayMenu()
+{
+    cout << "Next, select the length of your loan." << endl;
+    cout << "1. 48 months." << endl;
+    cout << "2. 60 months." << endl;
+    cout << "3. 72 months." << endl;
+    cout << "4. 84 months." << endl;
+    cout << "5. Exit" << endl;
+    cout << "==============" << endl;
+    cout << "Enter your choice: ";
+
+    char choice;
+    cin >> choice;
+    return choice;
+}
+
+bool processChoice(string firstName, string lastName, double loanAmount, const double interestRate)
+{
+    char choice;
+    bool shouldExit = false;
+
+    do {
+        switch (displayMenu())
+        {
+        case '1':
+            // Call the function for 48 months
+            foureightmonths(firstName, lastName, loanAmount, interestRate);
+            break;
+        case '2':
+            // Call the function for 60 months
+            sixzeromonths(firstName, lastName, loanAmount, interestRate);
+            break;
+        case '3':
+            // Call the function for 72 months
+            seventwomonths(firstName, lastName, loanAmount, interestRate);
+            break;
+        case '4':
+            // Call the function for 84 months
+            eightfourmonths(firstName, lastName, loanAmount, interestRate);
+            break;
+        case '5': // Exit program section
+            shouldExit = true;
+            break;
+        default:
+            cout << "Invalid choice. Please try again." << endl;
+        }
+        if (!shouldExit)
+        {
+            while (true)
+            {
+                cout << "Do you want to go back to the menu? (y/n): ";
+                cin >> choice;
+                if (choice == 'y' || choice == 'Y')
+                {
+                    break;
+                }
+                else if (choice == 'n' || choice == 'N')
+                {
+                    shouldExit = true;
+                    break;
+                }
+                else
+                {
+                    cout << "Invalid input. Please enter 'y' or 'n'." << endl;
+                }
+            }
+        }
+    } while (!shouldExit);
+
+    return shouldExit;
+}
