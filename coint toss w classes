@@ -1,0 +1,94 @@
+//coin.h//
+
+#ifndef COIN_H
+#define COIN_H
+
+#include <iostream>
+#include <ctime>
+using namespace std;
+
+class coin
+{
+private:
+    int heads;
+    int tails;
+    string sideup;
+
+public:
+    coin()
+    {
+        heads = 0;
+        tails = 0;
+        srand(time(NULL));
+        initialFlip();
+    }
+
+    void initialFlip()
+    {
+        int NUM = rand() % 2;
+        if (NUM == 1)
+        {
+            sideup = "Heads";
+        }
+        else
+        {
+            sideup = "Tails";
+        }
+    }
+
+    void flip(int numFlips)
+    {
+        for (int i = 0; i < numFlips; ++i)
+        {
+            int NUM = rand() % 2;
+            if (NUM == 1)
+            {
+                sideup = "Heads";
+                heads++;
+            }
+            else
+            {
+                sideup = "Tails";
+                tails++;
+            }
+            cout << "Flip " << (i + 1) << ": " << sideup << endl;
+        }
+    }
+
+    int getHeads() const
+    {
+        return heads;
+    }
+
+    int getTails() const
+    {
+        return tails;
+    }
+
+    string getSideup() const
+    {
+        return sideup;
+    }
+};
+
+#endif
+
+
+//main.cpp//
+
+#include "coin.h"
+
+int main()
+{
+    coin c;
+
+    cout << "Initial side facing up: " << c.getSideup() << endl;
+
+    const int NUM_FLIPS = 20;
+    c.flip(NUM_FLIPS);
+
+    cout << "Tails was tossed " << c.getTails() << " times." << endl;
+    cout << "Heads was tossed " << c.getHeads() << " times." << endl;
+
+    return 0;
+}
