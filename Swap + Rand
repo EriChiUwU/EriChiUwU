@@ -1,0 +1,70 @@
+#include <iostream>
+#include <cstdlib> 
+#include <ctime>    
+
+using namespace std;
+
+void swap(int* x, int* y);
+int* getRandomNumbers(int num);
+
+int main()
+{
+    int y;
+    int x;
+    int num;
+    int* arr;
+
+    cout << "Please provide two numbers to swap between their positions." << endl;
+
+    cin >> x;
+    cin >> y;
+
+    swap(&x, &y);
+
+    cout << "Swapped values: " << endl;
+    cout << x << endl;
+    cout << y << endl;
+
+    cout << "Please provide how many random numbers you want to generate." << endl;
+
+    cin >> num;
+
+    arr = getRandomNumbers(num);
+
+    if (arr != nullptr)
+    {
+        for (int i = 0; i < num; i++)
+        {
+            cout << arr[i] << endl;
+        }
+    }
+    else
+    {
+        cout << "Invalid number of random numbers requested." << endl;
+    }
+
+    return 0;
+}
+
+void swap(int* x, int* y)
+{
+    int temp;
+    temp = *x;
+    *x = *y;
+    *y = temp;
+}
+
+int* getRandomNumbers(int num)
+{
+    if (num <= 0)
+        return nullptr;
+
+    int* arr = new int[num];
+
+    srand(time(0));
+
+    for (int count = 0; count < num; count++)
+        arr[count] = rand() % 10;
+
+    return arr;
+}
