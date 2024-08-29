@@ -1,0 +1,111 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+class Pet
+{
+private:
+	string name;
+	string species;
+	int numLegs;
+	char sex;
+	int age;
+
+public:
+	Pet()
+	{
+		name = "UNNAMED PET";
+		species = "UNKNOWN SPECIES";
+		numLegs = 0;
+		sex = 'U';
+		age = 0;
+	}
+
+	Pet(string petName, string petSpecies, int petNumLegs, char petSex, int petAge)
+	{
+		setName(petName);
+		setSpecies(petSpecies);
+		setNumLegs(petNumLegs);
+		setSex(petSex);
+		setAge(petAge);
+	}
+
+	string getName() { return name; }
+	string getSpecies() { return species; }
+	int getNumLegs() { return numLegs; }
+	char getSex() { return sex; }
+	int getAge() { return age; }
+
+	void setName(string petName)
+	{
+		name = petName;
+	}
+	void setSpecies(string petSpecies)
+	{
+		species = petSpecies;
+	}
+	void setNumLegs(int petNumLegs)
+	{
+		if (petNumLegs >= 0)
+			numLegs = petNumLegs;
+	}
+	void setSex(char petSex)
+	{
+		if (petSex == 'M' || petSex == 'm')
+			sex = 'M';
+		else if (petSex == 'F' || petSex == 'f')
+			sex = 'F';
+	}
+	void setAge(int petAge)
+	{
+		if (petAge >= 0)
+			age = petAge;
+	}
+
+	void display(Pet p)
+	{
+		cout << p.getName() << " is a ";
+		cout << p.getAge() << " years old ";
+		
+		if (p.getSex() == 'M')
+			cout << "male ";
+		else if (p.getSex() == 'F')
+			cout << "female ";
+		cout << p.getSpecies() << " with ";
+		cout << p.getNumLegs() << " legs." << endl;
+	}
+};
+
+int main()
+{
+	string petName;
+	string petSpecies;
+	int petNumLegs = 0;
+	char petSex;
+	int petAge = 0;
+
+
+	Pet p1;
+	Pet p2;
+	Pet p3("Bonbom", "Pomeranian Dog", 4, 'F', 5);
+	
+
+	p1.setName("Loki");
+	p1.setSpecies("Pomeranian Dog");
+	p1.setNumLegs(4);
+	p1.setSex('M');
+	p1.setAge(10);
+
+	cout << "Name: " << p1.getName() << endl;
+	cout << "Species: " << p1.getSpecies() << endl;
+	cout << "Legs: " << p1.getNumLegs() << endl;
+	cout << "Sex: " << p1.getSex() << endl;
+	cout << "Age: " << p1.getAge() << endl;
+	
+	p1.display(p1);
+    p2.display(p2);
+	p3.display(p3);
+
+	return 0;
+}
